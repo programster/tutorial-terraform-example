@@ -1,0 +1,17 @@
+keycloak_url = "https://keycloak.mydomain.com"
+keycloak_auth_username = "admin"
+keycloak_auth_password = ""
+realm_name_slug = "netbird"
+realm_display_name = "Netbird"
+
+# SMTP settings
+smtp_host = "email-smtp.eu-west-1.amazonaws.com"
+smtp_port = 587
+smtp_from_email = "keycloak@mydomain.com"
+smtp_from_display_name = "Keycloak"
+smtp_reply_to_email = "noreply@mydomain.com"
+smtp_reply_to_display_name = "Noreply"
+smtp_use_starttls = true
+smtp_use_ssl = false
+smtp_username = "AKIAXXXXXXXXXX"
+smtp_password = "xxxxxxxxxxxxxxxxxxxx"
