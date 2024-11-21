@@ -78,3 +78,44 @@ variable "smtp_password" {
     sensitive = true
 }
 
+variable "netbird_url" {
+    type = string
+    description = "The full URL of your Netbird server. E.g. https://netbird.mydomain.com/"
+}
+
+variable "netbird_application_client_id" {
+    type = string
+    description = "The string ID for the Netbird client."
+    default = "netbird-client"
+}
+
+variable "netbird_application_client_name" {
+    type = string
+    description = "The display name for the Netbird client."
+    default = "Netbird Application Client"
+}
+
+variable "netbird_backend_client_id" {
+    type = string
+    description = "The string ID for the Netbird backend client."
+    default = "netbird-backend-client"
+}
+
+variable "netbird_backend_client_name" {
+    type = string
+    description = "The display name for the Netbird backend client."
+    default = "Netbird Backend Client"
+}
+
+
+variable "netbird_admin_email" {
+    type = string
+    description = "The email address of the user that will be the administrator in Keycloak for Netbird."
+}
+
+variable "netbird_admin_password" {
+    type = string
+    description = "The password for the administrator created in Keycloak for Netbird"
+    sensitive = true
+}
+

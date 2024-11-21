@@ -15,3 +15,8 @@ smtp_use_starttls = true
 smtp_use_ssl = false
 smtp_username = "AKIAXXXXXXXXXX"
 smtp_password = "xxxxxxxxxxxxxxxxxxxx"
+
+# Netbird client settings
+netbird_url = "https://netbird.mydomain.com/"
+netbird_client_id = "netbird-client"
+netbird_client_name = "Netbird Application Client"
