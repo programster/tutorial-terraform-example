@@ -1,5 +1,6 @@
-# Creates client scopes that can be attached to clients that use the OpenID Connect protocol
-# https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/openid_client_scope
+# Creates client scope (Step 6: https://bit.ly/3ZDj8cl) that can be attached to clients that use the OpenID Connect
+#  protocol
+#  https://registry.terraform.io/providers/mrparkers/keycloak/latest/docs/resources/openid_client_scope
 resource "keycloak_openid_client_scope" "openid_client_scope" {
     realm_id               = keycloak_realm.realm.id
     name                   = "api"
@@ -9,7 +10,7 @@ resource "keycloak_openid_client_scope" "openid_client_scope" {
 }
 
 
-# Create an audience that maps to the API scope
+# Create an audience (step 7: https://bit.ly/4ihoHV2) that maps to the API scope created in step 6.
 # Creates an audience protocol mapper to allow adding audiences to the aud claim within issued tokens.
 # The audience can be a custom string, or it can be mapped to the ID of a pre-existing client.
 # The audience is presented as the aud claim in the access token. It's typically the resource server (API) that a
