@@ -33,17 +33,20 @@ resource "keycloak_openid_client" "netbird_backend_client" {
     login_theme = "keycloak"
 }
 
-// Need to replace this with a solution from https://stackoverflow.com/questions/79207185/use-terraform-to-assign-realm-management-role-to-service-account-user-in-keycloa
-// when it becomes available.
-resource "keycloak_role" "view_users_role" {
+
+# load in the existing realm-management client
+data "keycloak_openid_client" "realm_management_client" {
     realm_id = keycloak_realm.realm.id
-    name     = "view-users"
+    client_id = "realm-management"
 }
 
-resource "keycloak_openid_client_service_account_realm_role" "service_account_role_assignment" {
+
+# Assign the realm-management view-users role to the netbird backend client's service management
+resource "keycloak_openid_client_service_account_role" "service_account_role_assignment" {
     realm_id                = keycloak_realm.realm.id
     service_account_user_id = keycloak_openid_client.netbird_backend_client.service_account_user_id
-    role                    = keycloak_role.view_users_role.name
+    client_id               = data.keycloak_openid_client.realm_management_client.id // ID of the client the role belongs to, not ID of client assigning to.
+    role                    = "view-users"
 }
 
 
